@@ -1,7 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMH's Translator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <h1>Thiếu APOS</h1>
+    <div class="container">
+        <div class="file-input-container">
+            <label for="fileInput" class="file-input-label">Chọn file .sdlxliff</label>
+            <input type="file" id="fileInput">
+        </div>
+        <div class="file-input-container">
+            <label for="textInputFile" class="file-input-label">Chọn file .txt</label>
+            <input type="file" id="textInputFile" accept=".txt">
+        </div>
+    </div>
+    <div class="file-input-label" onclick="generateNewSDLXLIFF()">Save</div>
+
+<table id="referenceTable">
+    <thead>
+        <tr>
+            <th>Source Reference</th>
+            <th>Target Reference</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody id="references"></tbody>
+</table>
+
+    <table id="outputTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Source</th>
+                <th>Target</th>
+                <th>Replacement</th>
+                <th>Replacement 2</th>
+            </tr>
+        </thead>
+        <tbody id="output"></tbody>
+    </table>
+    <h1></h1>
+
+    <div class="file-input-label" onclick="generateNewSDLXLIFF()">Save</div>
+
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
