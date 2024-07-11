@@ -1,2 +1,2 @@
-**Hướng dẫn sử dụng tool**
+**Import content from .txt to .sdlxliff**
 
