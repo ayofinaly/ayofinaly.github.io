@@ -9,7 +9,7 @@ function handleFile(event) {
 
     reader.onload = function(e) {
         fileContent = e.target.result;
-        extractMrkTags(); // Automatically extract tags after file is loaded
+        extractMrkTags();
     };
 
     reader.readAsText(file);
@@ -25,14 +25,14 @@ function handleTextFile(event) {
         const rows = document.getElementById('output').getElementsByTagName('tr');
                 if (textContent.length !== rows.length) {
         
-        alert('Lỗi: file .txt được chọn chưa hợp lý (Sai số đoạn hoặc sai định dạng)');
-        location.reload(); // Reload the page
+        alert('Lỗi: file .txt được chọn chưa hợp lý (Chưa có file SDLXLIFF, sai số đoạn hoặc sai định dạng)');
+        location.reload();
     return;
 }
 
         for (let i = 0; i < rows.length; i++) {
-            const cell3 = rows[i].getElementsByTagName('td')[2]; // Third column (User Input)
-            const cell4 = rows[i].getElementsByTagName('td')[3]; // Fourth column (Processed Input)
+            const cell3 = rows[i].getElementsByTagName('td')[2];
+            const cell4 = rows[i].getElementsByTagName('td')[3];
 
             if (i < textContent.length) {
                 const userInput = textContent[i].trim();
@@ -41,8 +41,8 @@ function handleTextFile(event) {
                 const mid = rows[i].getElementsByTagName('td')[1].textContent.match(/mid="([^"]*)"/)[1];
                 cell4.textContent = `<mrk mtype="seg" mid="${mid}">${userInput}</mrk>`;
             } else {
-                cell3.textContent = ''; // Clear cell3 if fewer lines in file than rows in table
-                cell4.textContent = ''; // Clear cell4 correspondingly
+                cell3.textContent = '';
+                cell4.textContent = '';
             }
         }                        
     };
@@ -53,7 +53,7 @@ function handleTextFile(event) {
 
 function extractMrkTags() {
     if (!fileContent) {
-        alert('Please load an SDLXLIFF file first.');
+        alert('Chưa có file SDLXLIFF.');
         return;
     }
 
@@ -97,7 +97,8 @@ function extractMrkTags() {
             row.appendChild(cell4);
             output.appendChild(row);
         }
-    }copyColumnToClipboard()
+    }
+    copyColumnToClipboard()
 
 }
 
@@ -111,7 +112,6 @@ function generateNewSDLXLIFF() {
         const originalText = rows[i].cells[1].textContent;
         const newText = rows[i].cells[3].textContent;
 
-        // Find and replace all occurrences of originalText with newText
         let index = newContent.lastIndexOf(originalText);
         while (index !== -1) {
             newContent = newContent.substring(0, index) + newText + newContent.substring(index + originalText.length);
@@ -139,8 +139,8 @@ function copyColumnToClipboard() {
     const rows = outputTable.getElementsByTagName('tr');
     let columnData = '';
 
-    for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-        const cell = rows[i].getElementsByTagName('td')[0]; // First column
+    for (let i = 1; i < rows.length; i++) {
+        const cell = rows[i].getElementsByTagName('td')[0]; 
         if (cell) {
             columnData += cell.textContent + '\n';
         }
@@ -159,5 +159,5 @@ function showCopyTick() {
     copyTick.classList.add('show');
     setTimeout(() => {
         copyTick.classList.remove('show');
-    }, 1000); // Fade out after 2 seconds
+    }, 1000);
 }
