@@ -1,9 +1,11 @@
+<!-- test thử đọc ghi file csv hocawjc json -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMH's SDLXLIFF Editor</title>
+    <title>SDLXLIFF Editor</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -14,45 +16,39 @@
     <div class="container">
         <div class="file-input-container">
             <label for="fileInput" class="file-input-label">Chọn file .sdlxliff</label>
-            <input type="file" id="fileInput">
+            <input type="file" id="fileInput" accept=".sdlxliff">
         </div>
         <div class="file-input-container">
             <label for="textInputFile" class="file-input-label">Chọn file .txt</label>
             <input type="file" id="textInputFile" accept=".txt">
         </div>
+        <div class="file-input-label" onclick="copyColumnToClipboard()">Copy</div>
+    <div id="copyTick" class="copy-tick"> ✔ Đã copy gốc</div>
     </div>
-    <div class="file-input-label" onclick="generateNewSDLXLIFF()">Save</div>
+    <div class="file-input-label2" onclick="generateNewSDLXLIFF()">SAVE NEW FILE</div>
 
-<table id="referenceTable">
-    <thead>
-        <tr>
-            <th>Source</th>
-            <th>Target</th>
-            <th>Replacement</th>
-        </tr>
-    </thead>
-    <tbody id="references"></tbody>
-</table>
+
 
     <table id="outputTable">
         <thead>
             <tr>
-                <th>No.</th>
+
                 <th>Source</th>
                 <th>Target</th>
-                <th>Replacement</th>
-                <th>Replacement 2</th>
+                <th>Imported</th>
+                <th>Replacement + tags</th>
             </tr>
         </thead>
         <tbody id="output"></tbody>
     </table>
     <h1></h1>
 
-    <div class="file-input-label" onclick="generateNewSDLXLIFF()">Save</div>
+    <div class="file-input-label2" onclick="generateNewSDLXLIFF()">SAVE NEW FILE</div>
 
 
 
   <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/6.1.0/docx.min.js"></script>
 
 </body>
 </html>
