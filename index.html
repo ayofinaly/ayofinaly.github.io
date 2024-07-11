@@ -10,23 +10,27 @@
 
 </head>
 <body>
+    <h1>SDLXLIFF Editor</h1>
 
     <div class="container">
-        <!-- <a class="file-input-label3" href="https://github.com/ayofinaly/ayofinaly.github.io/blob/main/README.md">?</a> -->
-                <a class="file-input-label3" href="guide.html">?</a>
+
 
         <div class="file-input-container">
+
+            
             <label for="fileInput" class="file-input-label">Chọn file .sdlxliff</label>
             <input type="file" id="fileInput" accept=".sdlxliff">
+           
         </div>
-        <!-- <div class="file-input-label" onclick="copyColumnToClipboard()">Copy</div> -->
+        <!-- <div class="file-input-label" onclick="copyColumnToClipboard()">Copy</div> --> <div id="copyTick" class="copy-tick"> ✔ Đã copy gốc</div>
         <div class="file-input-container">
             <label for="textInputFile" class="file-input-label">Chọn file .txt</label>
             <input type="file" id="textInputFile" accept=".txt">
+            <a class="file-input-label3" href="guide.html">?</a>
+
         </div>
-    <div id="copyTick" class="copy-tick"> ✔ Đã copy gốc</div>
+        
     </div>
-    <div class="file-input-label2" onclick="generateNewSDLXLIFF()">SAVE NEW FILE</div>
 
 
 
@@ -42,14 +46,13 @@
         </thead>
         <tbody id="output"></tbody>
     </table>
-    <h1></h1>
+    <h2></h2>
 
     <div class="file-input-label2" onclick="generateNewSDLXLIFF()">SAVE NEW FILE</div>
 
 
 
   <script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/6.1.0/docx.min.js"></script>
 
 </body>
 </html>
