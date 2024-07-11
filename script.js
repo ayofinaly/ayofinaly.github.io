@@ -97,7 +97,7 @@ function extractMrkTags() {
             row.appendChild(cell4);
             output.appendChild(row);
         }
-    }
+    }copyColumnToClipboard()
 
 }
 
